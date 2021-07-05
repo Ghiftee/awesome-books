@@ -51,17 +51,15 @@ function removeBook(e) {
       bookIndex = index;
     }
   });
-
+   const newBooks = books.filter(function(book) {
+        return (book.title !== books[bookIndex].title) && (book.author !== books[bookIndex].author);
+    });
+    books = newBooks;
+    populateBooks();
+    console.log(books);
 }
 
 const addButton = document.getElementById("add-btn");
 addButton.addEventListener('click', addBook);
 
 window.addEventListener('load', populateBooks);
-// function removeBook(bookTitle, bookAuthor) {
-//     const newBooks =
-//         books.filter(function(book) {
-//             return (book.title !== bookTitle) && (book.author !== bookAuthor);
-//     });
-//     books = newBooks;
-// }
