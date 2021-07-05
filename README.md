@@ -7,7 +7,14 @@
 
 ![screenshot](images/screenshot.png)
 
-Additional description about the project and its features.
+### Milestone 1:
+
+- Create the basic HTML UI
+- Use an array of objects to store the books collection
+- Use a constructor to create a book object
+- Use a function to add a book to the collection and display it on the page
+- Use a function to remove a book from the collection and remove it from the page
+- Implement local storage to save collection of books
 
 ## Built With
 
@@ -21,21 +28,22 @@ Additional description about the project and its features.
 ## Getting Started
 
 To get a local copy up and running:
+
 You should have basic knowledge of HTML and Javascript, a text editor and chrome browser.
 
 ## Authors
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/ghiftee)
-- Twitter: [@twitterhandle](https://twitter.com/ghiftee)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/giftuwhubetine)
+- GitHub: [@Ghiftee](https://github.com/ghiftee)
+- Twitter: [@Ghiftee](https://twitter.com/ghiftee)
+- LinkedIn: [Ghiftee](https://linkedin.com/in/giftuwhubetine)
 
 👤 **Author2**
 
-- GitHub: [@githubhandle](https://github.com/akasharojee)
-- Twitter: [@twitterhandle](https://twitter.com/akasharojee)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/akasharojee)
+- GitHub: [@AkashaRojee](https://github.com/akasharojee)
+- Twitter: [@AkashaRojee](https://twitter.com/akasharojee)
+- LinkedIn: [Akasha Rojee](https://linkedin.com/in/akasharojee)
 
 ## 🤝 Contributing
 
