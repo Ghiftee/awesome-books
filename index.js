@@ -7,6 +7,7 @@ function Book(title, author) {
 
 function populateBooks() {
   let bookList = document.querySelector('.book-list');
+  bookList.innerHTML = '';
 
   books.forEach(book => {
     let bookContainer = document.createElement('div');
@@ -17,11 +18,10 @@ function populateBooks() {
     bookContainer.append(bookTitle, bookAuthor);
     bookList.append(bookContainer);
   });
-  console.log(bookList);
 }
 
 
-function addBook() {
+function addBook(e) {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
 
@@ -29,6 +29,7 @@ function addBook() {
 
     populateBooks();
 
+    e.preventDefault();
 
 }
 
