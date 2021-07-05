@@ -5,7 +5,7 @@
 
 > This is a creation of a Javascript website which updates and removes books as the user pleases. 
 
-![screenshot](./image/screenshot.png)
+![screenshot](images/screenshot.png)
 
 Additional description about the project and its features.
 
