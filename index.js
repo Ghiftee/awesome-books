@@ -13,6 +13,8 @@ function populateBooks() {
 
     let booksLS = JSON.parse(localStorage.getItem('books'));
 
+    books = [];
+
     booksLS.forEach(book => {
 
       books.push(book);
@@ -28,7 +30,9 @@ function populateBooks() {
       removeButton.innerHTML = 'Remove';
       removeButton.addEventListener('click', removeBook);
 
-      bookContainer.append(bookTitle, bookAuthor, removeButton);
+      let separator = document.createElement('hr');
+
+      bookContainer.append(bookTitle, bookAuthor, removeButton, separator);
       bookList.append(bookContainer);
 
     });
