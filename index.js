@@ -15,11 +15,14 @@ function populateBooks() {
     bookTitle.innerHTML = book.title;
     let bookAuthor = document.createElement('p');
     bookAuthor.innerHTML = book.author;
-    bookContainer.append(bookTitle, bookAuthor);
+    const removeButton = document.createElement("button");
+    removeButton.addEventListener('click', removeBook);
+    removeButton.innerHTML = 'Remove'
+    bookContainer.append(bookTitle, bookAuthor, removeButton);
     bookList.append(bookContainer);
   });
+   
 }
-
 
 function addBook(e) {
     const title = document.getElementById('title').value;
@@ -33,9 +36,20 @@ function addBook(e) {
 
 }
 
-
 const addButton = document.getElementById("add-btn");
 addButton.addEventListener('click', addBook);
 
 
+
+function removeBook() {
+    removeBook(title, author);
+
+}
 // window.addEventListener('load', populateBooks);
+function removeBook(bookTitle, bookAuthor) {
+    const newBooks =
+        books.filter(function(book) {
+            return (book.title !== bookTitle) && (book.author !== bookAuthor);
+    });
+    books = newBooks;
+}
