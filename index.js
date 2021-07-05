@@ -7,6 +7,8 @@ function Book(title, author) {
   this.author = author;
 }
 
+// Populate books section dynamically using local storage
+// Called from page load, from adding a book, and from removing a book
 function populateBooks() {
   const bookList = document.querySelector('.book-list');
   bookList.innerHTML = '';
@@ -38,6 +40,7 @@ function populateBooks() {
   }
 }
 
+//Add book to collection, update local storage, and refresh displayed list
 function addBook(e) {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
@@ -47,10 +50,12 @@ function addBook(e) {
   e.preventDefault();
 }
 
+//Remove book from collection, update local storage, and refresh displayed list
 function removeBook(e) {
   const removeButtons = document.querySelectorAll('.remove-btn');
   let bookIndex = 0;
 
+  //Identify which book to remove
   removeButtons.forEach((removeButton, index) => {
     if (e.target === removeButton) {
       bookIndex = index;
@@ -60,8 +65,8 @@ function removeBook(e) {
   const newBooks = books.filter(
     (b) => ((b.title !== b[bookIndex].title) && (b.author !== b[bookIndex].author)),
   );
-
   books = newBooks;
+
   localStorage.setItem('books', JSON.stringify(books));
   populateBooks();
 }
