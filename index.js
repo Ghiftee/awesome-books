@@ -63,7 +63,7 @@ function removeBook(e) {
   });
 
   const newBooks = books.filter(
-    (b) => ((b.title !== b[bookIndex].title) && (b.author !== b[bookIndex].author)),
+    (b) => ((b.title !== books[bookIndex].title) && (b.author !== books[bookIndex].author)),
   );
   books = newBooks;
 
