@@ -1,4 +1,9 @@
-let books = [];
+let books = [
+  new Book('b1', 'a1'),
+  new Book('b2', 'a2'),
+  new Book('b3', 'a3'),
+  new Book('b4', 'a4')
+  ];
 
 function Book(title, author) {
     this.title = title;
@@ -10,14 +15,18 @@ function populateBooks() {
   bookList.innerHTML = '';
 
   books.forEach(book => {
+
     let bookContainer = document.createElement('div');
     let bookTitle = document.createElement('p');
     bookTitle.innerHTML = book.title;
     let bookAuthor = document.createElement('p');
     bookAuthor.innerHTML = book.author;
+
     const removeButton = document.createElement("button");
+    removeButton.classList.add('remove-btn');
+    removeButton.innerHTML = 'Remove';
     removeButton.addEventListener('click', removeBook);
-    removeButton.innerHTML = 'Remove'
+
     bookContainer.append(bookTitle, bookAuthor, removeButton);
     bookList.append(bookContainer);
   });
@@ -27,29 +36,32 @@ function populateBooks() {
 function addBook(e) {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
-
     books.push(new Book(title, author));
-
     populateBooks();
-
     e.preventDefault();
+}
+
+function removeBook(e) {
+  
+  let removeButtons = document.querySelectorAll('.remove-btn');
+  let bookIndex = 0;
+
+  removeButtons.forEach((removeButton, index) => {
+    if (e.target === removeButton) {
+      bookIndex = index;
+    }
+  });
 
 }
 
 const addButton = document.getElementById("add-btn");
 addButton.addEventListener('click', addBook);
 
-
-
-function removeBook() {
-    removeBook(title, author);
-
-}
-// window.addEventListener('load', populateBooks);
-function removeBook(bookTitle, bookAuthor) {
-    const newBooks =
-        books.filter(function(book) {
-            return (book.title !== bookTitle) && (book.author !== bookAuthor);
-    });
-    books = newBooks;
-}
+window.addEventListener('load', populateBooks);
+// function removeBook(bookTitle, bookAuthor) {
+//     const newBooks =
+//         books.filter(function(book) {
+//             return (book.title !== bookTitle) && (book.author !== bookAuthor);
+//     });
+//     books = newBooks;
+// }
