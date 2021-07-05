@@ -1,7 +1,4 @@
-let books = [new Book("Book1", "author1"), 
-            new Book("Book2", "Author2"), 
-            new Book("Book3", "Author3"), 
-            new Book("Book4", "Author4")];
+let books = [];
 
 function Book(title, author) {
     this.title = title;
@@ -23,4 +20,21 @@ function populateBooks() {
   console.log(bookList);
 }
 
-window.addEventListener('load', populateBooks);
+
+function addBook() {
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+
+    books.push(new Book(title, author));
+
+    populateBooks();
+
+
+}
+
+
+const addButton = document.getElementById("add-btn");
+addButton.addEventListener('click', addBook);
+
+
+// window.addEventListener('load', populateBooks);
