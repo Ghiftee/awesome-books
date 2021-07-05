@@ -8,4 +8,19 @@ function Book(title, author) {
     this.author = author;
 }
 
-window.addEventListener('')
+function populateBooks() {
+  let bookList = document.querySelector('.book-list');
+
+  books.forEach(book => {
+    let bookContainer = document.createElement('div');
+    let bookTitle = document.createElement('p');
+    bookTitle.innerHTML = book.title;
+    let bookAuthor = document.createElement('p');
+    bookAuthor.innerHTML = book.author;
+    bookContainer.append(bookTitle, bookAuthor);
+    bookList.append(bookContainer);
+  });
+  console.log(bookList);
+}
+
+window.addEventListener('load', populateBooks);
