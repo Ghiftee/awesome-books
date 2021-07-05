@@ -40,7 +40,7 @@ function populateBooks() {
   }
 }
 
-//Add book to collection, update local storage, and refresh displayed list
+// Add book to collection, update local storage, and refresh displayed list
 function addBook(e) {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
@@ -50,12 +50,12 @@ function addBook(e) {
   e.preventDefault();
 }
 
-//Remove book from collection, update local storage, and refresh displayed list
+// Remove book from collection, update local storage, and refresh displayed list
 function removeBook(e) {
   const removeButtons = document.querySelectorAll('.remove-btn');
   let bookIndex = 0;
 
-  //Identify which book to remove
+  // Identify which book to remove
   removeButtons.forEach((removeButton, index) => {
     if (e.target === removeButton) {
       bookIndex = index;
