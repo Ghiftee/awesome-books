@@ -2,9 +2,10 @@
 
 let books = [];
 
-function Book(title, author) {
+function Book(title, author, id) {
   this.title = title;
   this.author = author;
+  this.id = id;
 }
 
 // Populate books section dynamically using local storage
@@ -26,13 +27,14 @@ function populateBooks() {
       bookTitle.innerHTML = book.title;
       const bookAuthor = document.createElement('p');
       bookAuthor.innerHTML = book.author;
+      const separator = document.createElement('hr');
 
       const removeButton = document.createElement('button');
-      removeButton.classList.add('remove-btn');
+      // removeButton.classList.add('remove-btn');
       removeButton.innerHTML = 'Remove';
-      removeButton.addEventListener('click', removeBook);
-
-      const separator = document.createElement('hr');
+      removeButton.addEventListener('click', () => {
+        this.removeBook(book.id)
+      });
 
       bookContainer.append(bookTitle, bookAuthor, removeButton, separator);
       bookList.append(bookContainer);
@@ -44,26 +46,27 @@ function populateBooks() {
 function addBook(e) {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
-  books.push(new Book(title, author));
+  const id = Math.random() * 100;
+  books.push(new Book(title, author, id));
   localStorage.setItem('books', JSON.stringify(books));
   populateBooks();
   e.preventDefault();
 }
 
 // Remove book from collection, update local storage, and refresh displayed list
-function removeBook(e) {
-  const removeButtons = document.querySelectorAll('.remove-btn');
-  let bookIndex = 0;
+function removeBook(id) {
+  // const removeButtons = document.querySelectorAll('.remove-btn');
+  // let bookIndex = 0;
 
   // Identify which book to remove
-  removeButtons.forEach((removeButton, index) => {
-    if (e.target === removeButton) {
-      bookIndex = index;
-    }
-  });
-
+  // removeButtons.forEach((removeButton, index) => {
+  //   if (e.target === removeButton) {
+  //     bookIndex = index;
+  //   }
+  // });
+  
   const newBooks = books.filter(
-    (b) => ((b.title !== books[bookIndex].title) && (b.author !== books[bookIndex].author)),
+    (b) => ((b.id !== id)),
   );
   books = newBooks;
 
