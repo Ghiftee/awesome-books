@@ -13,13 +13,9 @@ class BookCollection {
     }
   }
 
-  add() {
-    this.books.push(new Book(
-      this.books.length + 1,
-      document.getElementById('title').value,
-      document.getElementById('author').value,
-    ));
-
+  add(id, title, author) {
+    this.books.push(new Book(id, title, author));
+    
     this.refresh();
   }
 
@@ -65,11 +61,16 @@ function createHTML(books) {
   });
 }
 
+function addBook() {
+  bookCollection.add(
+    bookCollection.books.length + 1,
+    document.getElementById('title').value,
+    document.getElementById('author').value);
+}
+
 function initialiseBooks() {
   const addButton = document.getElementById('add-btn');
-  addButton.addEventListener('click', () => {
-    bookCollection.add();
-  });
+  addButton.addEventListener('click', addBook);
 }
 
 document.addEventListener('DOMContentLoaded', initialiseBooks);
