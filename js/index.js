@@ -7,8 +7,6 @@ class BookCollection {
     this.populate();
   }
 
-  // Populate books section dynamically using local storage
-  // Called from page load, from adding a book, and from removing a book
   populate() {
     const bookList = document.querySelector('.book-list');
     bookList.innerHTML = '';
@@ -36,7 +34,6 @@ class BookCollection {
     }
   }
 
-  // Add book to collection
   add() {
     this.books.push(new Book(
       this.books.length + 1,
@@ -47,7 +44,6 @@ class BookCollection {
     this.refresh();
   }
 
-  // Remove book from collection
   remove(e) {
     const removeButtons = document.querySelectorAll('.remove-btn');
     const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
@@ -57,7 +53,6 @@ class BookCollection {
     this.refresh();
   }
 
-  // After adding/removing book from collection, update local storage, and refresh displayed list
   refresh() {
     localStorage.setItem('books', JSON.stringify(this.books));
     this.populate();
