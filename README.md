@@ -16,6 +16,11 @@
 - Use a function to remove a book from the collection and remove it from the page
 - Implement local storage to save collection of books
 
+### Milestone 2:
+
+- Use JavaScript classes instead of objects and arrays.
+- Create class methods to add and remove books.
+
 ## Built With
 
 - HTML, Javascript
