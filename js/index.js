@@ -1,4 +1,5 @@
 /* eslint-disable no-use-before-define */
+/* global createElement */
 
 class Book {
   constructor(id, title, author) {
@@ -11,18 +12,11 @@ class Book {
 class BookCollection {
   constructor() {
     this.books = [];
-
     this.populate();
-
-    // const addButton = document.getElementById('add-btn');
-    // addButton.addEventListener('click', this.add());
-    // let books = [];
-    // this.books = [];
-    // this.populateBooks;
-    // this.refreshBooks;
-    // this.addBook
   }
 
+  // Populate books section dynamically using local storage
+ // Called from page load, from adding a book, and from removing a book
   populate() {
     const bookList = document.querySelector('.book-list');
     bookList.innerHTML = '';
@@ -42,14 +36,16 @@ class BookCollection {
         const separator = document.createElement('hr');
 
         const removeButton = createElement('button', 'remove-btn', {}, 'Remove');
-        // removeButton.addEventListener('click', removeBook);
-
+        removeButton.addEventListener('click', function(e) {
+          bookCollection.remove(e);
+        });
         bookContainer.append(bookTitle, bookAuthor, removeButton, separator);
         bookList.append(bookContainer);
       });
     }
   }
 
+  // Add book to collection
   add() {
     this.books.push(new Book(
       this.books.length + 1,
@@ -59,64 +55,30 @@ class BookCollection {
     this.refresh();
   }
 
-  remove() {
+  // Remove book from collection
+  remove(e) {
+    const removeButtons = document.querySelectorAll('.remove-btn');
+    const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
 
+    this.books.splice(bookIndex, 1);
+    
+    this.refresh();
   }
 
+  //After adding/removing book from collection, update local storage, and refresh displayed list
   refresh() {
     localStorage.setItem('books', JSON.stringify(this.books));
     this.populate();
   }
 }
 
-// Create HTML element of given type and add classes, attributes and textContent (where applicable)
-function createElement(elementType, classNames = '', attributes = {}, innerHTML = '') {
-  const elementObject = document.createElement(elementType);
-  if (classNames) elementObject.classList.add(...(classNames.split(' ')));
-  Object.keys(attributes).forEach((attribute) => {
-    elementObject.setAttribute(attribute, attributes[attribute]);
-  });
-  elementObject.innerHTML = innerHTML;
-  return elementObject;
-}
+const bookCollection = new BookCollection();
 
 function initialiseBooks() {
-  const bookCollection = new BookCollection();
   const addButton = document.getElementById('add-btn');
   addButton.addEventListener('click', function() {
     bookCollection.add();
   });
-}
-
-// Populate books section dynamically using local storage
-// Called from page load, from adding a book, and from removing a book
-function populateBooks() {
-}
-
-//After adding/removing book from collection, update local storage, and refresh displayed list
-function refreshBooks() {
-  
-}
-
-// Add book to collection
-function addBook() {
-
-}
-
-// Remove book from collection
-function removeBook(e) {
-
-  //Identify which book to remove
-  const removeButtons = document.querySelectorAll('.remove-btn');
-  const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
-  
-  // const newBooks = books.filter(
-  //   (b) => ((b.id !== id)),
-  // );
-  // books = newBooks;
-
-  books.splice(bookIndex, 1);
-  refreshBooks();
 }
 
 document.addEventListener('DOMContentLoaded', initialiseBooks);
