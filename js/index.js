@@ -1,38 +1,13 @@
-/* eslint-disable no-use-before-define */
-/* global Book, createElement */
-
-class BookCollection {
-  constructor() {
-    this.books = [];
-    this.populate();
-  }
-
-  populate() {
-    if (localStorage.length > 0) {
-      createHTML(this.books);
-    }
-  }
-
-  add(id, title, author) {
-    this.books.push(new Book(id, title, author));
-
-    this.refresh();
-  }
-
-  remove(bookIndex) {
-    
-    this.books.splice(bookIndex, 1);
-
-    this.refresh();
-  }
-
-  refresh() {
-    localStorage.setItem('books', JSON.stringify(this.books));
-    this.populate();
-  }
-}
+/* eslint-disable no-unused-vars */
+/* global BookCollection, Book, createElement */
 
 const bookCollection = new BookCollection();
+
+function removeBook(e) {
+  const removeButtons = document.querySelectorAll('.remove-btn');
+  const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
+  bookCollection.remove(bookIndex);
+}
 
 function createHTML(books) {
   const bookList = document.querySelector('.book-list');
@@ -52,27 +27,25 @@ function createHTML(books) {
 
     const removeButton = createElement('button', 'remove-btn', {}, 'Remove');
     removeButton.addEventListener('click', removeBook);
+
     bookContainer.append(bookTitle, bookAuthor, removeButton, separator);
     bookList.append(bookContainer);
   });
+
+  return books;
 }
 
-function addBook() {
+function addBooks() {
   bookCollection.add(
     bookCollection.books.length + 1,
     document.getElementById('title').value,
-    document.getElementById('author').value);
-}
-
-function removeBook(e){
-    const removeButtons = document.querySelectorAll('.remove-btn');
-    const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
-    bookCollection.remove(bookIndex);
+    document.getElementById('author').value,
+  );
 }
 
 function initialiseBooks() {
   const addButton = document.getElementById('add-btn');
-  addButton.addEventListener('click', addBook);
+  addButton.addEventListener('click', addBooks);
 }
 
 document.addEventListener('DOMContentLoaded', initialiseBooks);
