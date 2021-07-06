@@ -2,13 +2,22 @@
 
 let books = [];
 
-function Book(id, title, author) {
-  this.id = id;
-  this.title = title;
-  this.author = author;
+// function Book(id, title, author) {
+//   this.id = id;
+//   this.title = title;
+//   this.author = author;
+// }
+
+class Book {
+  constructor(id, title, author) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
 }
 
 // Create HTML element of given type and add classes, attributes and textContent (where applicable)
+
 function createElement(elementType, classNames = '', attributes = {}, innerHTML = '') {
   const elementObject = document.createElement(elementType);
   if (classNames) elementObject.classList.add(...(classNames.split(' ')));
@@ -19,8 +28,19 @@ function createElement(elementType, classNames = '', attributes = {}, innerHTML 
   return elementObject;
 }
 
+
+class BookCollection {
+  constructor() {
+    this.books = [];
+
+    this.populateBooks;
+    this.refreshBooks;
+    this.addBook
+  }
+}
 // Populate books section dynamically using local storage
 // Called from page load, from adding a book, and from removing a book
+
 function populateBooks() {
   const bookList = document.querySelector('.book-list');
   bookList.innerHTML = '';
