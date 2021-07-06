@@ -15,14 +15,12 @@ class BookCollection {
 
   add(id, title, author) {
     this.books.push(new Book(id, title, author));
-    
+
     this.refresh();
   }
 
-  remove(e) {
-    const removeButtons = document.querySelectorAll('.remove-btn');
-    const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
-
+  remove(bookIndex) {
+    
     this.books.splice(bookIndex, 1);
 
     this.refresh();
@@ -53,9 +51,7 @@ function createHTML(books) {
     const separator = document.createElement('hr');
 
     const removeButton = createElement('button', 'remove-btn', {}, 'Remove');
-    removeButton.addEventListener('click', (e) => {
-      bookCollection.remove(e);
-    });
+    removeButton.addEventListener('click', removeBook);
     bookContainer.append(bookTitle, bookAuthor, removeButton, separator);
     bookList.append(bookContainer);
   });
@@ -66,6 +62,12 @@ function addBook() {
     bookCollection.books.length + 1,
     document.getElementById('title').value,
     document.getElementById('author').value);
+}
+
+function removeBook(e){
+    const removeButtons = document.querySelectorAll('.remove-btn');
+    const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
+    bookCollection.remove(bookIndex);
 }
 
 function initialiseBooks() {
