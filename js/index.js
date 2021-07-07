@@ -3,7 +3,7 @@
 
 const bookCollection = new BookCollection();
 
-function removeBook(e) 
+function removeBook(e) {
   const removeButtons = document.querySelectorAll('.remove-btn');
   const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
   bookCollection.remove(bookIndex);
