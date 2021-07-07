@@ -76,6 +76,15 @@
   margin-top: 10px;
 }
 
+.m-y-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.m-t-50 {
+  margin-top: 50px;
+}
+
 .p-x-5 {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -94,30 +103,32 @@
   width: 100%;
 }
 
+.w-200px {
+  width: 200px;
+}
+
 /*
   ========================================
   Specific element styling
   ========================================
 */
-h1 {
-  margin: 30px;
+body {
+  z-index: -5;
 }
 
 .book-list {
   border: 2px solid black;
+  z-index: -4;
 }
 
 .book-list .book-item {
-  z-index: -2;
+  z-index: -3;
 }
 
-.book-list .book-item .remove-btn {
+.book-list .book-item div {
   -webkit-box-shadow: 4px 2px 0px 0px black;
           box-shadow: 4px 2px 0px 0px black;
-}
-
-form {
-  margin-top: 50px;
+  z-index: -1;
 }
 
 form:before {
@@ -135,7 +146,6 @@ form:before {
 form input {
   border: 2px solid black;
   padding: 2px 3px;
-  width: 200px;
 }
 
 form input::-webkit-input-placeholder {
@@ -165,7 +175,7 @@ form input::placeholder {
 */
 .btn {
   padding: 3px 7px;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .btn-shadow:before {
@@ -175,7 +185,7 @@ form input::placeholder {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2;
   -webkit-box-shadow: 2.5px 2.5px 0px 2px black;
           box-shadow: 2.5px 2.5px 0px 2px black;
   -webkit-transform: rotate(-2.5deg);

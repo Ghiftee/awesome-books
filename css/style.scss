@@ -62,6 +62,15 @@
   margin-top: 10px;
 }
 
+.m-y-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.m-t-50 {
+  margin-top: 50px;
+}
+
 .p-x-5 {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -80,30 +89,35 @@
   width: 100%;
 }
 
+.w-200px {
+  width: 200px;
+}
+
 /*
   ========================================
   Specific element styling
   ========================================
 */
 
-h1 {
-  margin: 30px;
+body {
+  z-index: -5;
 }
 
 .book-list {
   border: 2px solid black;
+  z-index: -4;
 
   .book-item {
-    z-index: -2;
+    z-index: -3;
 
-    .remove-btn {
+    div {
       box-shadow: 4px 2px 0px 0px black;
+      z-index: -1;
     }
   }
 }
 
 form {
-  margin-top: 50px;
   &:before {
     content: "";
     position: absolute;
@@ -117,7 +131,6 @@ form {
   input {
     border: 2px solid black;
     padding: 2px 3px;
-    width: 200px;
 
     &::placeholder {
       font-weight: bold;
@@ -134,7 +147,7 @@ form {
 
 .btn {
   padding: 3px 7px;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .btn-shadow {
@@ -145,7 +158,7 @@ form {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -2;
     box-shadow: 2.5px 2.5px 0px 2px black;
     transform: rotate(-2.5deg);
   }

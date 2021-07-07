@@ -4,6 +4,7 @@
 const bookCollection = new BookCollection();
 
 function removeBook(e) {
+  console.log('here');
   const removeButtons = document.querySelectorAll('.remove-btn');
   const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
   bookCollection.remove(bookIndex);
@@ -22,10 +23,10 @@ function createHTML(books) {
 
     const bookContainer = createElement(
       'div',
-      'book-item flex-row justify-between align-center p-x-5 p-y-15 w-100' + (index % 2 === 0 ? ' bg-grey' : ''));
+      'book-item flex-row justify-between align-center p-x-5 p-y-15 w-100 pos-rel' + (index % 2 === 0 ? ' bg-grey' : ''));
     const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}` )
 
-    const divButton = createElement('div');
+    const divButton = createElement('div', 'pos-rel');
     const removeButton = createElement('button', 'remove-btn btn btn-shadow pos-rel', {}, 'Remove');
     removeButton.addEventListener('click', removeBook);
 
