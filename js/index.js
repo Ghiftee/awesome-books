@@ -44,6 +44,9 @@ function addBooks() {
     document.getElementById('title').value,
     document.getElementById('author').value,
   );
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('title').focus();
 }
 
 function initialiseBooks() {
