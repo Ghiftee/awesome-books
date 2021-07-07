@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Patrick Hand', cursive;
+}
+
+/*
+  ========================================
+  Reusable Flexbox classes
+  ========================================
+*/
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+/*
+  ========================================
+  General styling
+  ========================================
+*/
+
+.center-text {
+  text-align: center;
+}
+
+.bg-grey {
+  background-color: grey;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.m-x-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.m-y-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.m-t-50 {
+  margin-top: 50px;
+}
+
+.p-x-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.p-y-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-200px {
+  width: 200px;
+}
+
+/*
+  ========================================
+  Specific element styling
+  ========================================
+*/
+
+body {
+  z-index: -5;
+}
+
+.book-list {
+  border: 2px solid black;
+  z-index: -4;
+
+  .book-item {
+    z-index: -3;
+
+    div {
+      box-shadow: 4px 2px 0 0 black;
+      z-index: -1;
+    }
+  }
+}
+
+form {
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    width: 15%;
+    box-shadow: 0 0 0 2px black;
+    transform: rotate(2deg);
+  }
+
+  input {
+    border: 2px solid black;
+    padding: 2px 3px;
+
+    &::placeholder {
+      font-weight: bold;
+      color: black;
+    }
+  }
+}
+
+/*
+  ========================================
+  Button styling
+  ========================================
+*/
+
+.btn {
+  padding: 3px 7px;
+  border: 1px solid black;
+}
+
+.btn-shadow {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    box-shadow: 2.5px 2.5px 0 2px black;
+    transform: rotate(-2.5deg);
+  }
+}

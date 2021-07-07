@@ -20,15 +20,18 @@ function createHTML(books) {
   booksLS.forEach((book, index) => {
     books.push(new Book(index + 1, book.title, book.author));
 
-    const bookContainer = document.createElement('div');
-    const bookTitle = createElement('p', '', {}, book.title);
-    const bookAuthor = createElement('p', '', {}, book.author);
-    const separator = document.createElement('hr');
+    const bookContainer = createElement(
+      'div',
+      `book-item flex-row justify-between align-center p-x-5 p-y-15 w-100 pos-rel${index % 2 === 0 ? ' bg-grey' : ''}`,
+    );
+    const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}`);
 
-    const removeButton = createElement('button', 'remove-btn', {}, 'Remove');
+    const divButton = createElement('div', 'pos-rel');
+    const removeButton = createElement('button', 'remove-btn btn btn-shadow pos-rel', {}, 'Remove');
     removeButton.addEventListener('click', removeBook);
 
-    bookContainer.append(bookTitle, bookAuthor, removeButton, separator);
+    divButton.append(removeButton);
+    bookContainer.append(bookText, divButton);
     bookList.append(bookContainer);
   });
 
@@ -41,6 +44,9 @@ function addBooks() {
     document.getElementById('title').value,
     document.getElementById('author').value,
   );
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('title').focus();
 }
 
 function initialiseBooks() {
