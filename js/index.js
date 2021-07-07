@@ -3,8 +3,7 @@
 
 const bookCollection = new BookCollection();
 
-function removeBook(e) {
-  console.log('here');
+function removeBook(e) 
   const removeButtons = document.querySelectorAll('.remove-btn');
   const bookIndex = Array.prototype.indexOf.call(removeButtons, e.target);
   bookCollection.remove(bookIndex);
@@ -23,8 +22,9 @@ function createHTML(books) {
 
     const bookContainer = createElement(
       'div',
-      'book-item flex-row justify-between align-center p-x-5 p-y-15 w-100 pos-rel' + (index % 2 === 0 ? ' bg-grey' : ''));
-    const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}` )
+      `book-item flex-row justify-between align-center p-x-5 p-y-15 w-100 pos-rel${index % 2 === 0 ? ' bg-grey' : ''}`,
+    );
+    const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}`);
 
     const divButton = createElement('div', 'pos-rel');
     const removeButton = createElement('button', 'remove-btn btn btn-shadow pos-rel', {}, 'Remove');
@@ -33,7 +33,6 @@ function createHTML(books) {
     divButton.append(removeButton);
     bookContainer.append(bookText, divButton);
     bookList.append(bookContainer);
-
   });
 
   return books;
