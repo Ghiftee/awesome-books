@@ -20,13 +20,17 @@ function createHTML(books) {
   booksLS.forEach((book, index) => {
     books.push(new Book(index + 1, book.title, book.author));
 
-    const bookContainer = createElement('div', 'flex-row justify-between');
+    const bookContainer = createElement(
+      'div',
+      'book-item flex-row justify-between align-center' + (index % 2 === 0 ? ' bg-grey' : ''));
     const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}` )
 
+    const divButton = createElement('div');
     const removeButton = createElement('button', 'remove-btn', {}, 'Remove');
     removeButton.addEventListener('click', removeBook);
 
-    bookContainer.append(bookText, removeButton);
+    divButton.append(removeButton);
+    bookContainer.append(bookText, divButton);
     bookList.append(bookContainer);
 
   });
