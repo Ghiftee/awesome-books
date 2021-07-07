@@ -21,7 +21,7 @@
 - Use JavaScript classes instead of objects and arrays.
 - Create class methods to add and remove books.
 
-## Milestone 3:
+### Milestone 3:
 
 - Add CSS styling
 
