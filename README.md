@@ -5,7 +5,7 @@
 
 > This is a creation of a Javascript website which updates and removes books as the user pleases. 
 
-![screenshot](images/screenshot.png)
+![screenshot](images/desktop-screenshot.png)
 
 ### Milestone 1:
 
