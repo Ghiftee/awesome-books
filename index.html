@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Awesome Books</h1>
+    <h1 class="center-text">All awesome books</h1>
 
-    <div class="book-list">
+    <div class="book-list flex-col align-center">
       <!-- Books are added dynamically here -->
     </div>
 
-    <form>
-        <br>
-        <input type="text" id="title" placeholder="Title">
-        <br><br>
-        <input type="text" id="author" placeholder="Author">
-        <br><br>
-        <button type="button" id="add-btn">Add</button>
+    <form class="flex-col align-center">
+      <h2>Add a new book</h2>
+      <input type="text" id="title" placeholder="Title">
+      <br><br>
+      <input type="text" id="author" placeholder="Author">
+      <br><br>
+      <button type="button" id="add-btn">Add</button>
     </form>
   <script src="js/library.js"></script>
   <script src="js/BookCollection.js"></script>

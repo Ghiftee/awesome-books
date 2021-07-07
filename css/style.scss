@@ -3,6 +3,23 @@
   flex-direction: row;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .justify-between {
   justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+p{
+  margin-right: 350px;
 }
