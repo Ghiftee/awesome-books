@@ -3,6 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: cursive;
 }
 
 .flex-row {
@@ -45,10 +46,48 @@
   background-color: grey;
 }
 
+h1 {
+  margin: 30px;
+}
+
+form {
+  margin-top: 50px;
+  position: relative;
+}
+
+form:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: translateX(50%);
+  width: 5%;
+  height: 1px;
+  -webkit-box-shadow: 0px 0px 0px 3px black;
+          box-shadow: 0px 0px 0px 3px black;
+  -webkit-transform: rotate(-2.5deg);
+          transform: rotate(-2.5deg);
+}
+
+form input {
+  border: 2px solid black;
+  margin-top: 20px;
+}
+
+form input:placeholder {
+  font-weight: bold;
+  color: black;
+}
+
+.book-list {
+  margin: auto;
+  border: 2px solid black;
+  width: 50%;
+}
+
 .book-item {
   z-index: -2;
   padding: 7.5px 15px;
-  width: 50%;
+  width: 100%;
 }
 
 .remove-btn {
