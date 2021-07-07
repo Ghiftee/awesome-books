@@ -10,17 +10,19 @@
 <body>
     <h1 class="center-text">All awesome books</h1>
 
-    <div class="book-list flex-col align-center">
+    <div class="book-list flex-col align-center m-x-auto w-50">
       <!-- Books are added dynamically here -->
     </div>
 
-    <form class="flex-col align-center">
+    <form class="flex-col align-center pos-rel m-x-auto w-50">
       <h2>Add a new book</h2>
-      <input type="text" id="title" placeholder="Title">
-      <input type="text" id="author" placeholder="Author">
-      
-      <button type="button" id="add-btn">Add</button>
+      <input type="text" id="title" class="m-t-10" placeholder="Title" >
+      <input type="text" id="author" class="m-t-10" placeholder="Author">
+      <div class="flex-row justify-end w-50 m-t-10">
+        <button type="button" id="add-btn" class="btn pos-rel btn-shadow">Add</button>
+      </div>
     </form>
+
   <script src="js/library.js"></script>
   <script src="js/BookCollection.js"></script>
   <script src="js/Book.js"></script>

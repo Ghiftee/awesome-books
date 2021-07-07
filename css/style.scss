@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: cursive;
+  font-family: 'Patrick Hand';
 }
 
-// Reusable Flex classes
+/*
+  ========================================
+  Reusable Flexbox classes
+  ========================================
+*/
 
 .flex-row {
   display: flex;
@@ -21,11 +27,19 @@
   justify-content: space-between;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .align-center {
   align-items: center;
 }
 
-// General styling
+/*
+  ========================================
+  General styling
+  ========================================
+*/
 
 .center-text {
   text-align: center;
@@ -35,56 +49,95 @@
   background-color: grey;
 }
 
+.pos-rel {
+  position: relative;
+}
 
-// Specific element styling
+.m-x-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.p-x-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.p-y-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/*
+  ========================================
+  Specific element styling
+  ========================================
+*/
 
 h1 {
   margin: 30px;
 }
 
+.book-list {
+  border: 2px solid black;
 
+  .book-item {
+    z-index: -2;
+
+    .remove-btn {
+      box-shadow: 4px 2px 0px 0px black;
+    }
+  }
+}
 
 form {
   margin-top: 50px;
-  position: relative;
   &:before {
     content: "";
     position: absolute;
-    top: -25px;
+    top: -20px;
     left: translateX(50%);
-    width: 5%;
-    height: 1px;
-    // border-top: 1px solid black;
-    box-shadow: 0px 0px 0px 3px black;
-    transform: rotate(-2.5deg);
+    width: 15%;
+    box-shadow: 0px 0px 0px 2px black;
+    transform: rotate(2deg);
   }
 
   input {
     border: 2px solid black;
-    margin-top: 20px;
-    &:placeholder {
+    padding: 2px 3px;
+    width: 200px;
+
+    &::placeholder {
       font-weight: bold;
       color: black;
     }
   }
 }
 
-.book-list {
-  margin: auto;
+/*
+  ========================================
+  Button styling
+  ========================================
+*/
+
+.btn {
+  padding: 3px 7px;
   border: 2px solid black;
-  width: 50%;
 }
 
-.book-item {
-  z-index: -2;
-  padding: 7.5px 15px;
-  width: 100%;
-}
-
-.remove-btn {
-  position: relative;
-  box-shadow: 4px 2px 0px 0px black;
-
+.btn-shadow {
   &:before {
     content: "";
     position: absolute;
@@ -93,7 +146,6 @@ form {
     width: 100%;
     height: 100%;
     z-index: -1;
-
     box-shadow: 2.5px 2.5px 0px 2px black;
     transform: rotate(-2.5deg);
   }
