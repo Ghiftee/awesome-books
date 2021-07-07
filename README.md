@@ -21,14 +21,17 @@
 - Use JavaScript classes instead of objects and arrays.
 - Create class methods to add and remove books.
 
+## Milestone 3:
+
+- Add CSS styling
+
 ## Built With
 
-- HTML, Javascript
+- HTML, SCSS, Javascript
 
 ## Live Demo
 
 [Live Demo Link](https://ghiftee.github.io/awesome-books/)
-
 
 ## Getting Started
 
