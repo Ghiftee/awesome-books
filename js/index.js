@@ -20,16 +20,15 @@ function createHTML(books) {
   booksLS.forEach((book, index) => {
     books.push(new Book(index + 1, book.title, book.author));
 
-    const bookContainer = document.createElement('div');
-    const bookTitle = createElement('p', '', {}, book.title);
-    const bookAuthor = createElement('p', '', {}, book.author);
-    const separator = document.createElement('hr');
+    const bookContainer = createElement('div', 'flex-row justify-between');
+    const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}` )
 
     const removeButton = createElement('button', 'remove-btn', {}, 'Remove');
     removeButton.addEventListener('click', removeBook);
 
-    bookContainer.append(bookTitle, bookAuthor, removeButton, separator);
+    bookContainer.append(bookText, removeButton);
     bookList.append(bookContainer);
+
   });
 
   return books;
