@@ -8,13 +8,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="pos-rel m-y-30">
-    <h1 class="center-text">All awesome books</h1>
+  <header>
+    <nav>
+      <p>Awesome Books</p>
+      <span>
+        <a href="#" id="book-list">List</a>
+        <a href="#" id="add-new">Add New</a>
+        <a href="#" id="contact">Contact</a>
+      </span>
+    </nav>
+  </header>
 
-    <div class="book-list flex-col align-center m-x-auto w-50 m-y-30 pos-rel">
+  <main>
+    <h1 class="center-text">All awesome books</h1>
+    <section id="all-books">
+      <div class="book-list flex-col align-center m-x-auto w-50 m-y-30 pos-rel">
       <!-- Books are added dynamically here -->
     </div>
-
-    <form class="flex-col align-center pos-rel m-x-auto m-t-50 w-50">
+    </section>
+    <section id="add-new-book">
+       <form class="flex-col align-center pos-rel m-x-auto m-t-50 w-50">
       <h2>Add a new book</h2>
       <input type="text" id="title" class="m-t-10 w-200px" placeholder="Title" >
       <input type="text" id="author" class="m-t-10 w-200px" placeholder="Author">
@@ -22,6 +35,25 @@
         <button type="button" id="add-btn" class="btn pos-rel btn-shadow">Add</button>
       </div>
     </form>
+    </section>
+    <section id="contact-info">
+      <p>Do you have any questions or you just want to say "Hello"?</p>
+      <p>You can reach out to us!</p>
+      <ul>
+        <li>Our email:mail@mail.com</li>
+        <li>Our phone number:0028563478</li>
+        <li>Our address:Streetname 22, 84503 City, Country</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    Copyright ...
+  </footer>
+    
+
+    
+
+   
 
   <script src="js/library.js"></script>
   <script src="js/BookCollection.js"></script>
