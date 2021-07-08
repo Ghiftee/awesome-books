@@ -72,6 +72,14 @@ function showSection(sectionId) {
   });
 }
 
+function refreshTime() {
+  const dateDisplay = document.querySelector('.date-display');
+  const date = luxon.DateTime.now().toFormat('FF');
+  const dateElement = createElement('p', '', {}, `${date}`);
+  dateDisplay.textContent = '';
+  dateDisplay.append(dateElement);
+}
+
 function initialiseEvents() {
   const addButton = document.getElementById('add-btn');
   addButton.addEventListener('click', addBooks);
@@ -83,10 +91,7 @@ function initialiseEvents() {
     });
   });
 
-  const dateDisplay = document.querySelector('.date-display');
-  const date = luxon.DateTime.now().toFormat('FF');
-  const dateElement = createElement('p', '', {}, `${date}`);
-  dateDisplay.append(dateElement);
+  window.setInterval(refreshTime, 1000);
 
   setSectionHeading(sections.list);
   document.getElementById('list-menu').classList.add('menu-focus');
