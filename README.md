@@ -5,7 +5,7 @@
 
 > This is a creation of a Javascript website which updates and removes books as the user pleases. 
 
-![screenshot](images/desktop-screenshot.png)
+![screenshot](images/project-screenshot.png)
 
 ### Milestone 1:
 
@@ -24,6 +24,11 @@
 ### Milestone 3:
 
 - Add CSS styling
+
+### Milestone 4:
+
+- Add complete navigation
+- Use luxon library to display date
 
 ## Built With
 
@@ -44,7 +49,7 @@ You should have basic knowledge of HTML and Javascript, a text editor and chrome
 👤 **Author1**
 
 - GitHub: [@Ghiftee](https://github.com/ghiftee)
-- Twitter: [@Ghiftee](https://twitter.com/ghiftee)
+- Twitter: [@Ghiftee](https://twitter.com/i_ghiftee)
 - LinkedIn: [Ghiftee](https://linkedin.com/in/giftuwhubetine)
 
 👤 **Author2**

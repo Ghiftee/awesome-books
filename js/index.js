@@ -1,5 +1,11 @@
 /* eslint-disable no-unused-vars */
-/* global BookCollection, Book, createElement */
+/* global BookCollection, Book, createElement, luxon */
+
+const sections = {
+  contact: 'Contact information',
+  'add-new': 'Add new book',
+  list: 'All awesome books',
+};
 
 const bookCollection = new BookCollection();
 
@@ -22,7 +28,7 @@ function createHTML(books) {
 
     const bookContainer = createElement(
       'div',
-      `book-item flex-row justify-between align-center p-x-5 p-y-15 w-100 pos-rel${index % 2 === 0 ? ' bg-grey' : ''}`,
+      `book-item flex-row justify-between align-center p-y-5 p-x-15 w-100 pos-rel${index % 2 === 0 ? ' bg-grey' : ''}`,
     );
     const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}`);
 
@@ -39,19 +45,57 @@ function createHTML(books) {
 }
 
 function addBooks() {
-  bookCollection.add(
-    bookCollection.books.length + 1,
-    document.getElementById('title').value,
-    document.getElementById('author').value,
-  );
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  if (title !== '' && author !== '') {
+    bookCollection.add(bookCollection.books.length + 1, title, author);
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+  }
   document.getElementById('title').focus();
 }
 
-function initialiseBooks() {
-  const addButton = document.getElementById('add-btn');
-  addButton.addEventListener('click', addBooks);
+function setSectionHeading(headingText) {
+  const sectionHeading = document.querySelector('h1');
+  sectionHeading.innerHTML = headingText;
 }
 
-document.addEventListener('DOMContentLoaded', initialiseBooks);
+function showSection(sectionId) {
+  document.getElementById(sectionId).classList.remove('hide');
+  document.getElementById(`${sectionId}-menu`).classList.add('menu-focus');
+  setSectionHeading(sections[sectionId]);
+  Object.keys(sections).forEach((section) => {
+    if (section !== sectionId) {
+      document.getElementById(section).classList.add('hide');
+      document.getElementById(`${section}-menu`).classList.remove('menu-focus');
+    }
+  });
+}
+
+function refreshTime() {
+  const dateDisplay = document.querySelector('.date-display');
+  const date = luxon.DateTime.now().toFormat('FF');
+  const dateElement = createElement('p', '', {}, `${date}`);
+  dateDisplay.textContent = '';
+  dateDisplay.append(dateElement);
+}
+
+function initialiseEvents() {
+  const addButton = document.getElementById('add-btn');
+  addButton.addEventListener('click', addBooks);
+
+  Object.keys(sections).forEach((section) => {
+    const menuItem = document.getElementById(`${section}-menu`);
+    menuItem.addEventListener('click', () => {
+      showSection(section);
+    });
+  });
+
+  refreshTime();
+  window.setInterval(refreshTime, 1000);
+
+  setSectionHeading(sections.list);
+  document.getElementById('list-menu').classList.add('menu-focus');
+}
+
+document.addEventListener('DOMContentLoaded', initialiseEvents);
