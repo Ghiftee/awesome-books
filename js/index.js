@@ -69,6 +69,11 @@ function initialiseEvents() {
       showSection(section);
     });
   });
+
+  const dateDisplay = document.querySelector('.date-display');
+  const date = luxon.DateTime.now().toFormat("FF");
+  const dateElement = createElement('p', '', {}, `${date}`);
+  dateDisplay.append(dateElement);
 }
 
 document.addEventListener('DOMContentLoaded', initialiseEvents);
