@@ -49,6 +49,29 @@
   background-color: grey;
 }
 
+.minimal {
+  text-decoration: none;
+  color: black;
+}
+
+.border-default {
+  border: 2px solid black;
+}
+
+.border-right {
+  border-right: 2px solid black;
+}
+
+.hide {
+  display: none;
+}
+
+/*
+  ========================================
+  Positioning, spacing and sizing utilities
+  ========================================
+*/
+
 .pos-rel {
   position: relative;
 }
@@ -71,12 +94,17 @@
   margin-top: 50px;
 }
 
-.p-x-5 {
+.p-y-5 {
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-.p-y-15 {
+.p-x-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.p-x-15 {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -118,14 +146,14 @@ body {
 }
 
 form {
-  &::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    width: 15%;
-    box-shadow: 0 0 0 2px black;
-    transform: rotate(2deg);
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: -20px;
+  //   width: 15%;
+  //   box-shadow: 0 0 0 2px black;
+  //   transform: rotate(2deg);
+  // }
 
   input {
     border: 2px solid black;

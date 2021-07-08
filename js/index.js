@@ -22,7 +22,7 @@ function createHTML(books) {
 
     const bookContainer = createElement(
       'div',
-      `book-item flex-row justify-between align-center p-x-5 p-y-15 w-100 pos-rel${index % 2 === 0 ? ' bg-grey' : ''}`,
+      `book-item flex-row justify-between align-center p-y-5 p-x-15 w-100 pos-rel${index % 2 === 0 ? ' bg-grey' : ''}`,
     );
     const bookText = createElement('p', '', {}, `"${book.title}" by ${book.author}`);
 
