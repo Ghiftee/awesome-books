@@ -45,13 +45,13 @@ function createHTML(books) {
 }
 
 function addBooks() {
-  bookCollection.add(
-    bookCollection.books.length + 1,
-    document.getElementById('title').value,
-    document.getElementById('author').value,
-  );
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
+  const title = document.getElementById('title').value
+  const author = document.getElementById('author').value
+  if(title !== '' && author !== '') {
+    bookCollection.add(bookCollection.books.length + 1, title, author);
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+  }
   document.getElementById('title').focus();
 }
 
