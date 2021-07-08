@@ -49,9 +49,35 @@ function addBooks() {
   document.getElementById('title').focus();
 }
 
+function showBookList() {
+  document.getElementById('list').classList.remove('hide');
+  document.getElementById('add-new').classList.add('hide');
+  document.getElementById('contact').classList.add('hide');
+}
+
+function showAddNew() {
+  document.getElementById('list').classList.add('hide');
+  document.getElementById('add-new').classList.remove('hide');
+  document.getElementById('contact').classList.add('hide');
+}
+
+function showContact() {
+  document.getElementById('list').classList.add('hide');
+  document.getElementById('add-new').classList.add('hide');
+  document.getElementById('contact').classList.remove('hide');
+}
+
 function initialiseBooks() {
   const addButton = document.getElementById('add-btn');
   addButton.addEventListener('click', addBooks);
+
+  const booklistMenu = document.getElementById('list-menu');
+  const addNewMenu = document.getElementById('add-new-menu');
+  const contactMenu = document.getElementById('contact-menu');
+
+  booklistMenu.addEventListener('click', showBookList);
+  addNewMenu.addEventListener('click', showAddNew);
+  contactMenu.addEventListener('click', showContact);
 }
 
 document.addEventListener('DOMContentLoaded', initialiseBooks);
