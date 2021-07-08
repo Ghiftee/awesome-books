@@ -152,14 +152,14 @@ body {
 
     #list {
       z-index: -5;
-    
+
       .book-list {
         border: 2px solid black;
         z-index: -4;
-      
+
         .book-item {
           z-index: -3;
-      
+
           div {
             box-shadow: 4px 2px 0 0 black;
             z-index: -1;
@@ -172,7 +172,7 @@ body {
       input {
         border: 2px solid black;
         padding: 2px 3px;
-    
+
         &::placeholder {
           font-weight: bold;
           color: black;
