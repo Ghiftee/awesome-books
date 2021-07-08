@@ -80,6 +80,11 @@
   display: none;
 }
 
+.menu-focus {
+  color: blue;
+  font-weight: bold;
+}
+
 /*
   ========================================
   Positioning, spacing and sizing utilities
@@ -92,6 +97,10 @@
 .m-x-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.m-10 {
+  margin: 10px;
 }
 
 .m-t-10 {
@@ -110,6 +119,14 @@
 .p-y-5 {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.p-l-10 {
+  padding-left: 10px;
+}
+
+.p-r-10 {
+  padding-right: 10px;
 }
 
 .p-x-10 {
@@ -140,60 +157,68 @@
   ========================================
 */
 body {
+  z-index: -7;
+}
+
+body main {
+  z-index: -6;
+  /*
+    ========================================
+    Button styling
+    ========================================
+    */
+}
+
+body main #list {
   z-index: -5;
 }
 
-.book-list {
+body main #list .book-list {
   border: 2px solid black;
   z-index: -4;
 }
 
-.book-list .book-item {
+body main #list .book-list .book-item {
   z-index: -3;
 }
 
-.book-list .book-item div {
+body main #list .book-list .book-item div {
   -webkit-box-shadow: 4px 2px 0 0 black;
           box-shadow: 4px 2px 0 0 black;
   z-index: -1;
 }
 
-form input {
+body main form input {
   border: 2px solid black;
   padding: 2px 3px;
 }
 
-form input::-webkit-input-placeholder {
+body main form input::-webkit-input-placeholder {
   font-weight: bold;
   color: black;
 }
 
-form input:-ms-input-placeholder {
+body main form input:-ms-input-placeholder {
   font-weight: bold;
   color: black;
 }
 
-form input::-ms-input-placeholder {
+body main form input::-ms-input-placeholder {
   font-weight: bold;
   color: black;
 }
 
-form input::placeholder {
+body main form input::placeholder {
   font-weight: bold;
   color: black;
 }
 
-/*
-  ========================================
-  Button styling
-  ========================================
-*/
-.btn {
+body main .btn {
   padding: 3px 7px;
   border: 1px solid black;
 }
 
-.btn-shadow::before {
+body main .btn-shadow::before {
   content: "";
   position: absolute;
   top: 0;

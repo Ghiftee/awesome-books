@@ -66,6 +66,11 @@
   display: none;
 }
 
+.menu-focus {
+  color: blue;
+  font-weight: bold;
+}
+
 /*
   ========================================
   Positioning, spacing and sizing utilities
@@ -79,6 +84,10 @@
 .m-x-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.m-10 {
+  margin: 10px;
 }
 
 .m-t-10 {
@@ -97,6 +106,14 @@
 .p-y-5 {
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.p-l-10 {
+  padding-left: 10px;
+}
+
+.p-r-10 {
+  padding-right: 10px;
 }
 
 .p-x-10 {
@@ -128,65 +145,64 @@
 */
 
 body {
-  z-index: -5;
-}
+  z-index: -7;
 
-.book-list {
-  border: 2px solid black;
-  z-index: -4;
+  main {
+    z-index: -6;
 
-  .book-item {
-    z-index: -3;
-
-    div {
-      box-shadow: 4px 2px 0 0 black;
-      z-index: -1;
+    #list {
+      z-index: -5;
+    
+      .book-list {
+        border: 2px solid black;
+        z-index: -4;
+      
+        .book-item {
+          z-index: -3;
+      
+          div {
+            box-shadow: 4px 2px 0 0 black;
+            z-index: -1;
+          }
+        }
+      }
     }
-  }
-}
 
-form {
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   top: -20px;
-  //   width: 15%;
-  //   box-shadow: 0 0 0 2px black;
-  //   transform: rotate(2deg);
-  // }
-
-  input {
-    border: 2px solid black;
-    padding: 2px 3px;
-
-    &::placeholder {
-      font-weight: bold;
-      color: black;
+    form {
+      input {
+        border: 2px solid black;
+        padding: 2px 3px;
+    
+        &::placeholder {
+          font-weight: bold;
+          color: black;
+        }
+      }
     }
-  }
-}
 
-/*
-  ========================================
-  Button styling
-  ========================================
-*/
+    /*
+    ========================================
+    Button styling
+    ========================================
+    */
 
-.btn {
-  padding: 3px 7px;
-  border: 1px solid black;
-}
+    .btn {
+      padding: 3px 7px;
+      border: 1px solid black;
+    }
 
-.btn-shadow {
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    box-shadow: 2.5px 2.5px 0 2px black;
-    transform: rotate(-2.5deg);
+    .btn-shadow {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        box-shadow: 2.5px 2.5px 0 2px black;
+        transform: rotate(-2.5deg);
+      }
+    }
   }
 }

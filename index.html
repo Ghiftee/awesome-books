@@ -7,15 +7,15 @@
     <title>Awesome Books</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="pos-rel m-y-30">
+<body class="pos-rel m-10">
 
   <header>
     <nav class="flex-row justify-between border-default p-y-5 p-x-15">
-      <p>Awesome Books</p>
-      <span class="">
-        <a href="#" id="list-menu" class="border-right minimal p-x-10">List</a>
+      <a href="https://ghiftee.github.io/awesome-books" class="minimal">Awesome Books</a>
+      <span class="flex-row">
+        <a href="#" id="list-menu" class="border-right minimal p-r-10">List</a>
         <a href="#" id="add-new-menu" class="border-right minimal p-x-10">Add New</a>
-        <a href="#" id="contact-menu" class="minimal">Contact</a>
+        <a href="#" id="contact-menu" class="minimal p-l-10">Contact</a>
       </span>
     </nav>
     <div class="date-display flex-row justify-end">
@@ -23,21 +23,21 @@
     </div>
   </header>
 
-  <main>
+  <main class="pos-rel m-y-30">
 
     <h1 class="center-text">
       <!-- Section title is added dynamically here -->
       
     </h1>
 
-    <section id="list">
+    <section id="list" class="pos-rel">
       <div class="book-list flex-col align-center m-x-auto w-50 m-y-30 pos-rel">
         <!-- Books are added dynamically here -->
       </div>
     </section>
 
     <section id="add-new" class="hide">
-      <form class="flex-col align-center pos-rel m-x-auto m-t-50 w-50">
+      <form class="flex-col align-center pos-rel m-x-auto m-y-30 w-50">
         <input type="text" id="title" class="m-t-10 w-200px" placeholder="Title" >
         <input type="text" id="author" class="m-t-10 w-200px" placeholder="Author">
         <div class="flex-row justify-end m-t-10 w-200px">
@@ -47,13 +47,17 @@
     </section>
 
     <section id="contact" class="hide">
-      <p>Do you have any questions or you just want to say "Hello"?</p>
-      <p>You can reach out to us!</p>
-      <ul>
-        <li>Our email:mail@mail.com</li>
-        <li>Our phone number:0028563478</li>
-        <li>Our address:Streetname 22, 84503 City, Country</li>
-      </ul>
+      <div class="flex-col align-center m-x-auto m-y-30 w-50">
+        <p>Do you have any questions or you just want to say "Hello"?</p>
+        <p>You can reach out to us!</p>
+        <br>
+        <ul>
+          <li>Our email: <a href="mailto:mail@mail.com">mail@mail.com</a></li>
+          <li>Our phone number: 0028563478</li>
+          <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
+      </div>
+      
     </section>
 
   </main>

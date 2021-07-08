@@ -60,12 +60,15 @@ function setSectionHeading(headingText) {
   sectionHeading.innerHTML = headingText;
 }
 
+
 function showSection(sectionId) {
   document.getElementById(sectionId).classList.remove('hide');
+  document.getElementById(`${sectionId}-menu`).classList.add('menu-focus');
   setSectionHeading(sections[sectionId]);
   Object.keys(sections).forEach(section => {
     if (section !== sectionId) {
       document.getElementById(section).classList.add('hide');
+      document.getElementById(`${section}-menu`).classList.remove('menu-focus');
     }
   });
 }
@@ -75,7 +78,7 @@ function initialiseEvents() {
   addButton.addEventListener('click', addBooks);
 
   Object.keys(sections).forEach(section => {
-    const menuItem = document.getElementById(section + '-menu');
+    const menuItem = document.getElementById(`${section}-menu`);
     menuItem.addEventListener('click', () => {
       showSection(section);
     });
@@ -87,6 +90,7 @@ function initialiseEvents() {
   dateDisplay.append(dateElement);
 
   setSectionHeading(sections.list);
+  document.getElementById('list-menu').classList.add('menu-focus');
 }
 
 document.addEventListener('DOMContentLoaded', initialiseEvents);
