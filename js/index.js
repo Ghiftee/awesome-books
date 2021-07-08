@@ -1,7 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* global BookCollection, Book, createElement */
 
-const sections = ['contact', 'add-new', 'list'];
+const sections = {
+  'contact': 'Contact information',
+  'add-new': 'Add new book',
+  'list': 'All awesome books'
+}
+
 const bookCollection = new BookCollection();
 
 function removeBook(e) {
@@ -50,9 +55,15 @@ function addBooks() {
   document.getElementById('title').focus();
 }
 
+function setSectionHeading(headingText) {
+  const sectionHeading = document.querySelector('h1');
+  sectionHeading.innerHTML = headingText;
+}
+
 function showSection(sectionId) {
   document.getElementById(sectionId).classList.remove('hide');
-  sections.forEach(section => {
+  setSectionHeading(sections[sectionId]);
+  Object.keys(sections).forEach(section => {
     if (section !== sectionId) {
       document.getElementById(section).classList.add('hide');
     }
@@ -63,7 +74,7 @@ function initialiseEvents() {
   const addButton = document.getElementById('add-btn');
   addButton.addEventListener('click', addBooks);
 
-  sections.forEach(section => {
+  Object.keys(sections).forEach(section => {
     const menuItem = document.getElementById(section + '-menu');
     menuItem.addEventListener('click', () => {
       showSection(section);
@@ -74,6 +85,8 @@ function initialiseEvents() {
   const date = luxon.DateTime.now().toFormat("FF");
   const dateElement = createElement('p', '', {}, `${date}`);
   dateDisplay.append(dateElement);
+
+  setSectionHeading(sections.list);
 }
 
 document.addEventListener('DOMContentLoaded', initialiseEvents);
