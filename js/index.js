@@ -91,6 +91,7 @@ function initialiseEvents() {
     });
   });
 
+  refreshTime();
   window.setInterval(refreshTime, 1000);
 
   setSectionHeading(sections.list);
