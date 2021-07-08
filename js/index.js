@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* global BookCollection, Book, createElement */
 
+const sections = ['contact', 'add-new', 'list'];
 const bookCollection = new BookCollection();
 
 function removeBook(e) {
@@ -49,35 +50,25 @@ function addBooks() {
   document.getElementById('title').focus();
 }
 
-function showBookList() {
-  document.getElementById('list').classList.remove('hide');
-  document.getElementById('add-new').classList.add('hide');
-  document.getElementById('contact').classList.add('hide');
+function showSection(sectionId) {
+  document.getElementById(sectionId).classList.remove('hide');
+  sections.forEach(section => {
+    if (section !== sectionId) {
+      document.getElementById(section).classList.add('hide');
+    }
+  });
 }
 
-function showAddNew() {
-  document.getElementById('list').classList.add('hide');
-  document.getElementById('add-new').classList.remove('hide');
-  document.getElementById('contact').classList.add('hide');
-}
-
-function showContact() {
-  document.getElementById('list').classList.add('hide');
-  document.getElementById('add-new').classList.add('hide');
-  document.getElementById('contact').classList.remove('hide');
-}
-
-function initialiseBooks() {
+function initialiseEvents() {
   const addButton = document.getElementById('add-btn');
   addButton.addEventListener('click', addBooks);
 
-  const booklistMenu = document.getElementById('list-menu');
-  const addNewMenu = document.getElementById('add-new-menu');
-  const contactMenu = document.getElementById('contact-menu');
-
-  booklistMenu.addEventListener('click', showBookList);
-  addNewMenu.addEventListener('click', showAddNew);
-  contactMenu.addEventListener('click', showContact);
+  sections.forEach(section => {
+    const menuItem = document.getElementById(section + '-menu');
+    menuItem.addEventListener('click', () => {
+      showSection(section);
+    });
+  });
 }
 
-document.addEventListener('DOMContentLoaded', initialiseBooks);
+document.addEventListener('DOMContentLoaded', initialiseEvents);
